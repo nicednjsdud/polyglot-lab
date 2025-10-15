@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext" , // Specify ECMAScript target version
+    "module": "ESNext" , // Specify module code generation
+    "outDir": "dist", // Redirect output structure to the dist directory
+    "strict": false, // Enable all strict type-checking options
+    "moduleDetection": "force", // Force module detection
+  },
+  "ts-node": {
+    "esm": true // Enable ES module support in ts-node
+  },
+  "include": ["src"] // Include all files in the src directory
+}
