@@ -3,7 +3,7 @@
     "target": "ESNext" , // Specify ECMAScript target version
     "module": "ESNext" , // Specify module code generation
     "outDir": "dist", // Redirect output structure to the dist directory
-    "strict": false, // Enable all strict type-checking options
+    "strict": true, // Enable all strict type-checking options
     "moduleDetection": "force", // Force module detection
   },
   "ts-node": {
