@@ -27,7 +27,7 @@ let config : {
   apiKey : "My API Key"
 };
 
-// config.apiKey 
+// config.apiKey = "123" error
 
 
 
