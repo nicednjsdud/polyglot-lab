@@ -25,4 +25,17 @@ let user4 = {
 };
 function func() {
 }
+;
+let countryCodes = {
+    Korea: 'ko',
+    USA: 'us',
+    Japan: 'jp',
+};
+let countryNumberCodes = {
+    Korea: 410,
+    USA: 840,
+    Japan: 392,
+};
+// 위배는 아니지만 권장하지는 않음
+let countryNumberCodes2 = {};
 export {};
