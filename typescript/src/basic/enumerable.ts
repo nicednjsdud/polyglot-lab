@@ -20,12 +20,15 @@ enum Role {
   ADMIN // 1
 }
 
-// 숫자 뿐만 아니라 문자도 가능
+// 숫자 가능
+// 자동으로 0, 1, 2... 지정
 enum RoleNumber {
   USER = 1,
   ADMIN
 }
 
+// 문자 가능
+// 자동으로 0, 1, 2... 지정 불가
 enum RoleString {
   USE = "USER",
   ADMIN = "ADMIN"

@@ -36,3 +36,12 @@ tupleA.pop(); // OK
 tupleA.pop(); // OK
 tupleA.pop(); // OK
 // tupleA.pop(); // Error: Tuple type '[string, number]' of length '2' has no element at index '2'.
+
+
+const users: [string, number][] = [
+  ["Alice", 30],
+  ["Bob", 25],
+  ["Charlie", 35],
+  ["Dave", 40]
+  // [50, "Eve"] // Error: Type 'number' is not assignable to type 'string'
+]
