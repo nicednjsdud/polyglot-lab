@@ -32,5 +32,38 @@ type Union1 = Dog | Person;
 let union1 : Union1 = {
   name: "Buddy",
   color: "brown",
+};
+
+let union2 : Union1 = {
+  name: "Alice",
+  age : 30
+};
+
+let union3 : Union1 = {
+  name: "Max",
+  color: "black",
   age : 5
 };
+
+// let union4 : Union1 = {
+//   name: "Charlie"
+// }; // Error: Property 'color' is missing in type '{ name: string; }' but required in type 'Dog'.
+
+/**
+ * 교집합 타입 (Intersection Type)
+ */
+
+let variable : number & string; // 불가능
+
+type Intersection = Dog & Person;
+
+let intersection : Intersection = {
+  name: "Charlie",
+  color: "white",
+  age: 4
+};
+
+// let intersection2 : Intersection = {
+//   name: "Lucy",
+//   color: "golden"
+// }; // Error: Property 'age' is missing in type '{ name: string; color: string; }' but required in type 'Intersection'.

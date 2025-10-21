@@ -29,10 +29,20 @@ function func1(message = "message") {
   return message; // 반환값의 타입은 string으로 추론됨
 }
 
-// 아무 초기값이 없으면 any 타입으로 추론됨
+// 아무 초기값이 없으면 암묵적 any 타입으로 추론됨
 let d;
 d = 10;
-d.toFixed();
+d.toFixed(); // number 타입으로 추론됨
+
 d = "hello";
-d.toLowerCase();
+d.toLowerCase(); // string 타입으로 추론됨
+
 d = true;
+d.valueOf(); // boolean 타입으로 추론됨
+
+const num = 10; // num은 10 타입으로 추론됨 (리터럴 타입)
+const str = "hello"; // str은 "hello" 타입으로 추론됨 (리터럴 타입)
+const bool = true; // bool은 true 타입으로 추론됨 (리터럴 타입)
+
+let arr = [1, "string"]; // arr은 (string | number)[] 타입으로 추론됨 (유니언 타입 배열)
+
