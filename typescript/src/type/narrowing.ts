@@ -30,7 +30,7 @@ function func(value: number | string | Date | null | Person){
     else if(value instanceof Date){
       return console.log(value.getFullYear()); // Date 타입으로 좁혀짐
     }
-    else if("age" in value! && "name" in value!){
+    else if(value && "age" in value){
       return console.log(`${value.name}은 ${value.age}살 입니다.`); // Person 타입으로 좁혀짐
     }
     else {
