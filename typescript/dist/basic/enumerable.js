@@ -15,12 +15,15 @@ var Role;
     Role[Role["USER"] = 0] = "USER";
     Role[Role["ADMIN"] = 1] = "ADMIN"; // 1
 })(Role || (Role = {}));
-// 숫자 뿐만 아니라 문자도 가능
+// 숫자 가능
+// 자동으로 0, 1, 2... 지정
 var RoleNumber;
 (function (RoleNumber) {
     RoleNumber[RoleNumber["USER"] = 1] = "USER";
     RoleNumber[RoleNumber["ADMIN"] = 2] = "ADMIN";
 })(RoleNumber || (RoleNumber = {}));
+// 문자 가능
+// 자동으로 0, 1, 2... 지정 불가
 var RoleString;
 (function (RoleString) {
     RoleString["USE"] = "USER";

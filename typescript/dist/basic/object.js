@@ -17,4 +17,4 @@ let config = {
     apiKey: "My API Key"
 };
 export {};
-// config.apiKey = "123" error
+// config.apiKey = "123" Error: Cannot assign to 'apiKey' because it is a read-only property
