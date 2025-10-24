@@ -1,0 +1,42 @@
+// enum 타입
+// 여러가지 값들에 각각 이름을 부여해 열거해두고 사용하는 타입입
+const user1 = {
+    name: "kim",
+    role: 0 // 0: 관리자
+};
+const user2 = {
+    name: "park",
+    role: 1 // 1: 일반 사용자
+};
+// role이 0, 1로 지정되어 있지만 어떤 역할인지 알기 어려움
+// 이를 해결하기 위해 enum 타입을 사용
+var Role;
+(function (Role) {
+    Role[Role["USER"] = 0] = "USER";
+    Role[Role["ADMIN"] = 1] = "ADMIN"; // 1
+})(Role || (Role = {}));
+// 숫자 가능
+// 자동으로 0, 1, 2... 지정
+var RoleNumber;
+(function (RoleNumber) {
+    RoleNumber[RoleNumber["USER"] = 1] = "USER";
+    RoleNumber[RoleNumber["ADMIN"] = 2] = "ADMIN";
+})(RoleNumber || (RoleNumber = {}));
+// 문자 가능
+// 자동으로 0, 1, 2... 지정 불가
+var RoleString;
+(function (RoleString) {
+    RoleString["USE"] = "USER";
+    RoleString["ADMIN"] = "ADMIN";
+})(RoleString || (RoleString = {}));
+const user3 = {
+    name: "lee",
+    role: Role.ADMIN
+};
+const user4 = {
+    name: "choi",
+    role: Role.USER
+};
+console.log(user3.role === Role.ADMIN); // true
+export {};
+// console.log(user4.role === Role.ADMIN) // false
