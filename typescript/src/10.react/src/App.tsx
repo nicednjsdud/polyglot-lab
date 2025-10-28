@@ -1,31 +1,62 @@
-import { useEffect, useRef , useState} from 'react';
+import { useEffect, useReducer, useRef} from 'react';
 import './App.css';
 import Editor from './component/editor';
+import { Todo } from './types';
+import TodoItem from './component/TodoItem';
 
-
-interface Todo {
-  id: number;
-  content: string;
+type Action = {
+  type : "CREATE";
+    data : {
+      id: number;
+      content: string;
+    }
+} | {
+  type : "DELETE";
+  data : {
+    id: number;
+  }
 }
 
+function reducer (state : Todo[], action : Action) {
+  switch(action.type) {
+    case "CREATE":
+      return [
+        ...state,
+        {
+          id: action.data.id,
+          content: action.data.content
+        }
+      ];
+    case "DELETE":
+      return state.filter((todo) => todo.id !== action.data.id);
+    default:
+      return state;
+  }
+};
+
 function App() {
-  const [text, setText] = useState("");
-  const [todos, setTodos] = useState<Todo[]>([]);
-  
+  const [todos, dispatch] = useReducer(reducer, []);
+  const idRef = useRef(1);
 
-  const idRef = useRef(0);
+  const onClickAdd = (text: string) => {
 
-  
-
-  const onClickAdd = () => {
-    setTodos([
-      ...todos,
-      {
+    dispatch({
+      type : "CREATE",
+      data : {
         id: idRef.current++,
         content: text
       }
-    ]);
+    })
   };
+
+  const onClickDelete = (id: number) => {
+    dispatch({
+      type : "DELETE",
+      data : {
+        id: id
+      }
+    })
+  }
 
   useEffect(() => {
     console.log(todos);
@@ -36,6 +67,11 @@ function App() {
     <div className="App">
       <h1>Todo</h1>
       <Editor onClickAdd={onClickAdd} />
+      <div>
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} id={todo.id} content={todo.content}  onClickDelete={onClickDelete}/>
+        ))}
+      </div>
     </div>
   );
 }
